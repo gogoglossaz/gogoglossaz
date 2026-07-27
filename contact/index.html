@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Free Quote | Go Go Gloss — Scottsdale & Metro Phoenix</title>
+  <meta name="description" content="Request a free quote for paver sealing or epoxy coatings in Scottsdale and Metro Phoenix. No obligation. Call (623) 210-3418.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css?v=1">
+  <link rel="stylesheet" href="../css/base.css?v=1">
+  <link rel="stylesheet" href="../css/header.css?v=2">
+  <link rel="stylesheet" href="../css/footer.css?v=1">
+  <link rel="stylesheet" href="../css/contact.css?v=1">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="header-logo">
+      <img src="../assets/logo.png" alt="Go Go Gloss">
+    </a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="/">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Services</a>
+          <div class="dropdown-menu">
+            <a href="../paver-sealing/">Paver Sealing</a>
+            <a href="../epoxy-coatings/">Epoxy Coatings</a>
+          </div>
+        </li>
+        <li><a href="../gallery/">Gallery</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:6232103418" class="header-phone">📞 (623) 210-3418</a>
+      <a href="../contact/" class="btn btn-primary header-cta">Get a Free Quote</a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu">
+  <a href="/">Home</a>
+  <a href="../paver-sealing/">Paver Sealing</a>
+  <a href="../epoxy-coatings/">Epoxy Coatings</a>
+  <a href="../gallery/">Gallery</a>
+  <a href="../about/">About</a>
+  <a href="../contact/">Contact</a>
+  <a href="tel:6232103418" class="mobile-phone">📞 Call (623) 210-3418</a>
+  <a href="../contact/" class="mobile-quote">Get a Free Quote →</a>
+</div>
+
+<!-- PAGE HERO -->
+<div style="background:linear-gradient(135deg,var(--navy),var(--navy-light));padding:48px 24px 0;text-align:center;">
+  <div style="max-width:600px;margin:0 auto;">
+    <p class="section-label" style="color:var(--blue);justify-content:center;display:flex;">Free Estimate</p>
+    <h1 style="color:white;margin-bottom:12px;">Get Your Free Quote</h1>
+    <p style="color:rgba(255,255,255,0.75);font-size:1.05rem;margin:0 auto 40px;">No obligation. Most responses within 24 hours.</p>
+  </div>
+</div>
+
+<div class="contact-page" style="background:var(--gray-light);">
+  <div class="contact-layout container">
+
+    <!-- FORM -->
+    <div>
+      <!-- Progress -->
+      <div class="form-progress">
+        <div class="progress-step active" id="pdot1">
+          <div class="progress-dot">1</div>
+          <span class="progress-label">Service</span>
+        </div>
+        <div class="progress-step" id="pdot2">
+          <div class="progress-dot">2</div>
+          <span class="progress-label">Your Info</span>
+        </div>
+        <div class="progress-step" id="pdot3">
+          <div class="progress-dot">3</div>
+          <span class="progress-label">Schedule</span>
+        </div>
+      </div>
+
+      <!-- Form Shell -->
+      <div class="form-shell">
+
+        <!-- STEP 1 -->
+        <div class="form-step active" id="step1">
+          <h2 class="step-heading">What service do you need?</h2>
+          <p class="step-sub">Select one option below to get started.</p>
+
+          <div class="service-cards">
+            <div class="svc-card" data-service="paver">
+              <div class="svc-card-icon">🧱</div>
+              <div class="svc-card-name">Paver Sealing</div>
+              <div class="svc-card-desc">Driveways, patios, pool decks & walkways</div>
+            </div>
+            <div class="svc-card" data-service="epoxy">
+              <div class="svc-card-icon">✨</div>
+              <div class="svc-card-name">Epoxy Coatings</div>
+              <div class="svc-card-desc">Garage floors, patios & commercial spaces</div>
+            </div>
+            <div class="svc-card bundle" data-service="both">
+              <div class="best-value-badge">🔥 Best Value — Save 10%</div>
+              <div class="svc-card-icon">💎</div>
+              <div class="svc-card-name">Both Services</div>
+              <div class="svc-card-desc">Bundle paver sealing + epoxy and save</div>
+            </div>
+          </div>
+
+          <!-- Upsell Banner -->
+          <div class="upsell-banner" id="upsellBanner">
+            <div class="upsell-icon">💡</div>
+            <div>
+              Add <strong><span class="upsell-service-name">the other service</span></strong> and <strong>save 10%</strong> when you bundle!
+              <span class="upsell-link" id="upsellLink">Switch to Both Services →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step" id="step2">
+          <h2 class="step-heading">Tell us about yourself</h2>
+          <p class="step-sub">We'll use this to reach out with your free quote.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" placeholder="John" autocomplete="given-name">
+              <span class="error-msg"></span>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" placeholder="Smith" autocomplete="family-name">
+              <span class="error-msg"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" placeholder="(623) 555-0100" autocomplete="tel">
+              <span class="error-msg"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="john@example.com" autocomplete="email">
+              <span class="error-msg"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Service Address *</label>
+            <input type="text" id="address" placeholder="123 Main St" autocomplete="street-address">
+            <span class="error-msg"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City *</label>
+              <input type="text" id="city" placeholder="Scottsdale" autocomplete="address-level2">
+              <span class="error-msg"></span>
+            </div>
+            <div class="form-group">
+              <label for="zip">ZIP Code *</label>
+              <input type="text" id="zip" placeholder="85251" autocomplete="postal-code" maxlength="5">
+              <span class="error-msg"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Property Type</label>
+            <div class="property-toggle">
+              <input type="radio" name="propertyType" id="residential" value="Residential" checked>
+              <label for="residential">🏠 Residential</label>
+              <input type="radio" name="propertyType" id="commercial" value="Commercial">
+              <label for="commercial">🏢 Commercial</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="form-step" id="step3">
+          <h2 class="step-heading">When works for you?</h2>
+          <p class="step-sub">Pick a preferred date and time. We'll confirm availability when we reach out.</p>
+
+          <div class="form-group">
+            <label for="prefDate">Preferred Date</label>
+            <input type="date" id="prefDate">
+          </div>
+
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <div class="time-options">
+              <div class="time-opt" data-time="Morning">
+                <div class="time-opt-icon">🌅</div>
+                <div class="time-opt-label">Morning</div>
+                <div class="time-opt-hours">8am – 12pm</div>
+              </div>
+              <div class="time-opt" data-time="Afternoon">
+                <div class="time-opt-icon">☀️</div>
+                <div class="time-opt-label">Afternoon</div>
+                <div class="time-opt-hours">12pm – 5pm</div>
+              </div>
+              <div class="time-opt selected" data-time="Flexible">
+                <div class="time-opt-icon">📅</div>
+                <div class="time-opt-label">Flexible</div>
+                <div class="time-opt-hours">Anytime works</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Anything else we should know? <span style="color:var(--gray-text);font-weight:400">(optional)</span></label>
+            <textarea id="notes" rows="3" placeholder="E.g. approximate square footage, current condition, gate access, etc."></textarea>
+          </div>
+        </div>
+
+      </div><!-- /form-shell -->
+
+      <!-- Form Nav -->
+      <div class="form-nav" id="formNav">
+        <button class="btn-back" id="btnBack" style="visibility:hidden">← Back</button>
+        <button class="btn-next" id="btnNext" disabled>Continue →</button>
+      </div>
+
+      <!-- Confirmation -->
+      <div class="confirmation" id="confirmation">
+        <div class="checkmark-circle">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <path d="M8 18l7 7 13-13" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2>You're all set, <span id="conf-name">there</span>!</h2>
+        <p>We received your request and will be in touch within <strong>24 hours</strong> to confirm your appointment and provide your free quote.</p>
+
+        <div class="confirmation-summary">
+          <div class="summary-row"><span>Service</span><strong id="sum-service">—</strong></div>
+          <div class="summary-row"><span>Name</span><strong id="sum-name">—</strong></div>
+          <div class="summary-row"><span>Address</span><strong id="sum-address">—</strong></div>
+          <div class="summary-row"><span>Preferred Date</span><strong id="sum-date">—</strong></div>
+          <div class="summary-row"><span>Preferred Time</span><strong id="sum-time">—</strong></div>
+        </div>
+
+        <p style="margin-bottom:20px;font-size:0.92rem;">Need to reach us sooner?</p>
+        <a href="tel:6232103418" class="confirmation-phone">📞 Call (623) 210-3418</a>
+      </div>
+
+    </div><!-- /form column -->
+
+    <!-- SIDEBAR -->
+    <aside class="contact-sidebar">
+      <div class="sidebar-title">Why Go Go Gloss</div>
+
+      <div class="sidebar-item">
+        <div class="sidebar-icon">⭐</div>
+        <div>
+          <h4>5-Star Google Rated</h4>
+          <p>Hundreds of happy customers across Scottsdale and Metro Phoenix.</p>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-icon">🛡️</div>
+        <div>
+          <h4>Licensed & Insured</h4>
+          <p>Your property is fully protected on every job we do.</p>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-icon">🏠</div>
+        <div>
+          <h4>Local & Family-Owned</h4>
+          <p>We live and work in the same communities we serve.</p>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-icon">⚡</div>
+        <div>
+          <h4>Fast Turnaround</h4>
+          <p>Most jobs completed in a single day with professional results.</p>
+        </div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-icon">💰</div>
+        <div>
+          <h4>Free Estimates</h4>
+          <p>No obligation. Get a clear quote before we start anything.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--gray-mid);">
+        <a href="tel:6232103418" style="display:flex;align-items:center;gap:10px;background:var(--navy);color:white;padding:14px 16px;border-radius:8px;font-weight:700;font-size:0.95rem;">
+          📞 (623) 210-3418
+        </a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../assets/logo.png" alt="Go Go Gloss">
+      <p>Professional Paver Sealing & Epoxy Coatings in Scottsdale and Metro Phoenix, AZ.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">🛡️ Licensed & Insured</span>
+        <span class="footer-badge">⭐ 5-Star Rated</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="../paver-sealing/">Paver Sealing</a></li>
+        <li><a href="../epoxy-coatings/">Epoxy Coatings</a></li>
+        <li><a href="../contact/">Free Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="../gallery/">Gallery</a></li>
+        <li><a href="../about/">About Us</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <a href="tel:6232103418">📞 (623) 210-3418</a>
+        <a href="mailto:info@gogoglossaz.com">✉️ info@gogoglossaz.com</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">in</a>
+        <a href="#" class="social-icon">G</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Go Go Gloss. All rights reserved.</span>
+    <span>Scottsdale, AZ · gogoglossaz.com</span>
+  </div>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script src="../js/form.js"></script>
+</body>
+</html>
