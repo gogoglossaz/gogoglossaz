@@ -95,6 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </li>
 
       <li><a href="${r}gallery/">Gallery</a></li>
+      <li><a href="${r}about/">About</a></li>
+      <li><a href="${r}contact/">Contact</a></li>
+      <li><a href="${r}blog/">Blog</a></li>
     `;
   }
 
@@ -115,6 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="mobile-city-label">Industries</div>
       ${INDUSTRIES.map(i => `<a href="${r}industries/${i.slug}/" style="padding-left:16px;font-size:0.82rem;">${i.name}</a>`).join('')}
       <a href="${r}gallery/">Gallery</a>
+      <a href="${r}about/">About</a>
+      <a href="${r}contact/">Contact</a>
+      <a href="${r}blog/">Blog</a>
       <a href="tel:6232103418" class="mobile-phone">📞 Call (623) 210-3418</a>
       <button class="mobile-quote open-quote-modal">Get a Free Quote →</button>
     `;
