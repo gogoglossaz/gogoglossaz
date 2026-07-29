@@ -179,10 +179,13 @@
   .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .process-steps::before { display: none; }
   .ba-grid { grid-template-columns: 1fr; }
+  .page-hero { padding: 56px 20px 48px; }
 }
 @media (max-width: 560px) {
   .benefits-grid { grid-template-columns: 1fr 1fr; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .surface-grid { grid-template-columns: 1fr; }
+  .page-hero .btn { display: flex; width: 100%; justify-content: center; }
 }
 
 /* ── Breadcrumb ── */
@@ -402,7 +405,7 @@
   .reviews-grid-sp { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
-  .surface-grid { grid-template-columns: 1fr 1fr; }
+  .surface-grid { grid-template-columns: 1fr; }
   .areas-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
