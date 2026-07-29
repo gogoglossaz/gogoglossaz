@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "Go Go Gloss",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8743"],
-      "port": 8743
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "python3 -m http.server $PORT"],
+      "port": 8743,
+      "autoPort": true
     }
   ]
 }
