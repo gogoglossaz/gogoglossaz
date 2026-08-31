@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getGallery, urlFor } from '../../lib/sanity.js';
+
+const items = await getGallery();
+const img = (src, w) => urlFor(src).width(w).auto('format').url();
+// "travertine" items sit under the Paver filter, matching the current page.
+const filterOf = (c) => (c === 'epoxy' ? 'epoxy' : 'paver');
+---
+<BaseLayout
+  title="Gallery | Paver Sealing & Epoxy Before & After | Go Go Gloss"
+  description="See before & after photos of paver sealing and epoxy coating jobs across Scottsdale and Metro Phoenix by Go Go Gloss."
+  canonical="https://gogoglossaz.com/gallery/"
+  pageCss={['/css/gallery.css?v=1']}
+>
+  <div class="gallery-page">
+    <div class="container">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Projects</button>
+        <button class="filter-tab" data-filter="paver">Paver Sealing</button>
+        <button class="filter-tab" data-filter="epoxy">Epoxy Coatings</button>
+      </div>
+
+      <div class="photo-grid">
+        {items.map((item) => (
+          <div class="photo-item" data-category={filterOf(item.category)}>
+            <div class="photo-pair">
+              {item.beforeImage && (
+                <div class="photo-half">
+                  <img src={img(item.beforeImage, 700)} alt={item.beforeImage.alt || `${item.title} before`} loading="lazy">
+                  <span class="photo-tag">Before</span>
+                </div>
+              )}
+              <div class="photo-half after-img">
+                <img src={img(item.afterImage, 700)} alt={item.afterImage.alt || `${item.title} after`} loading="lazy">
+                <span class="photo-tag">After</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {items.length === 0 && (
+        <p style="text-align:center;padding:48px 0;color:#666">
+          No projects published yet — add them in the Sanity Studio under Gallery.
+        </p>
+      )}
+    </div>
+  </div>
+
+  <script is:inline>
+    document.querySelectorAll('.filter-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.filter-tab').forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var f = tab.dataset.filter;
+        document.querySelectorAll('.photo-item').forEach(function (item) {
+          item.style.display = (f === 'all' || item.dataset.category === f) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</BaseLayout>

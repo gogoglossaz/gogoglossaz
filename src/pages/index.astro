@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getHomepage, getSettings, getGallery, urlFor } from '../lib/sanity.js';
+
+const hp = await getHomepage();
+const settings = await getSettings();
+const gallery = await getGallery();
+
+// Every field falls back to the current live copy, so the page renders
+// correctly even before the Homepage document is filled in.
+const D = {
+  heroEyebrow: '✦ Scottsdale & Metro Phoenix',
+  heroHeadingBefore: "Arizona's Trusted ",
+  heroHeadingHighlight: 'Paver Sealing',
+  heroHeadingAfter: ' & Epoxy Experts',
+  heroSub: 'Protecting and beautifying homes across Scottsdale & Metro Phoenix with professional-grade coatings that last.',
+  heroCta: 'Get a Free Quote →',
+  trustItems: [
+    { icon: '🏆', headline: '500+', sub: 'Jobs Completed' },
+    { icon: '⭐', headline: '5-Star Rated', sub: 'Google Reviews' },
+    { icon: '🛡️', headline: 'Licensed & Insured', sub: 'Your home is protected' },
+    { icon: '📍', headline: 'Metro Phoenix', sub: 'Scottsdale & all areas' },
+  ],
+  servicesLabel: 'What We Do',
+  servicesTitle: 'Our Services',
+  servicesSubtitle: 'We specialize in two services that protect and transform your outdoor surfaces.',
+  services: [
+    { title: 'Paver Sealing', link: '/paver-sealing/', fallbackImg: '/assets/paver-driveway-hero.jpg',
+      alt: 'Sealed herringbone brick paver patio at a Scottsdale AZ home — Go Go Gloss',
+      body: 'Seal and protect your driveway, patio, pool deck, and walkway pavers. Enhance color, prevent weeds, repel stains, and extend the life of your investment.' },
+    { title: 'Epoxy Coatings', link: '/epoxy-coatings/', fallbackImg: '/assets/epoxy-garage-floor.jpg',
+      alt: 'Completed gray flake epoxy garage floor coating — Go Go Gloss Scottsdale AZ',
+      body: "Transform your garage floor, patio, or commercial space with a durable, beautiful epoxy coating. Slip-resistant, easy to clean, and built for Arizona's heat." },
+  ],
+  whyLabel: 'Why Us',
+  whyTitle: 'Why Homeowners Choose Go Go Gloss',
+  whySubtitle: "We're a local team that treats every job like it's our own home.",
+  whyItems: [
+    { icon: '🏠', title: 'Local & Family-Owned', body: "We're your neighbors. We know Arizona homes and take pride in serving our community." },
+    { icon: '🧪', title: 'Professional-Grade Materials', body: 'We use high-quality commercial sealers and epoxy systems — not the stuff from a hardware store.' },
+    { icon: '⚡', title: 'Fast Turnaround', body: 'Most jobs completed in a single day. We respect your time and your schedule.' },
+    { icon: '🛡️', title: 'Licensed & Insured', body: 'Fully insured for your peace of mind. Your property is protected on every job.' },
+    { icon: '💯', title: 'Free Estimates', body: 'No pressure, no obligation. Get a detailed quote before we start anything.' },
+    { icon: '🌟', title: 'Satisfaction Focused', body: "We don't leave until you're happy. Our reputation is built one job at a time." },
+  ],
+  reviewsLabel: 'Reviews',
+  reviewsTitle: 'What Our Customers Say',
+  reviewsSubtitle: 'Real reviews from real homeowners across Metro Phoenix.',
+  testimonials: [
+    { quote: 'Go Go Gloss did an incredible job on our paver driveway. The color looks vibrant again and they finished in just a few hours. Highly recommend to anyone in Scottsdale!', name: 'Mike R.', location: 'Scottsdale, AZ', initials: 'MR' },
+    { quote: 'Our garage floor looks like a showroom. The epoxy coating is flawless and they were professional from start to finish. Worth every penny!', name: 'Jennifer L.', location: 'Chandler, AZ', initials: 'JL' },
+    { quote: 'Bundled the paver sealing and epoxy garage and saved money. Both came out amazing. The crew was on time, clean, and very knowledgeable. 5 stars!', name: 'David T.', location: 'Gilbert, AZ', initials: 'DT' },
+  ],
+  ctaTitle: 'Ready to Transform Your Outdoor Space?',
+  ctaSub: 'Get a free, no-obligation quote. Most jobs done in a single day.',
+};
+
+const v = (key) => (hp[key] === undefined || hp[key] === null || hp[key] === '' ||
+  (Array.isArray(hp[key]) && hp[key].length === 0)) ? D[key] : hp[key];
+
+const services = v('services').map((s, i) => ({
+  ...s,
+  img: s.image ? urlFor(s.image).width(800).auto('format').url() : D.services[i]?.fallbackImg,
+  alt: s.image?.alt || s.alt || D.services[i]?.alt || '',
+  link: s.link || D.services[i]?.link || '/',
+}));
+
+// Homepage gallery strip: featured Sanity items, else the current three stills.
+const featured = gallery.filter((g) => g.featured).slice(0, 3);
+const galleryThumbs = featured.length
+  ? featured.map((g) => ({
+      src: urlFor(g.afterImage).width(700).auto('format').url(),
+      alt: g.afterImage?.alt || g.title,
+      label: g.title,
+    }))
+  : [
+      { src: '/assets/paver-driveway-hero.jpg', alt: 'Sealed brick paver driveway in herringbone pattern — Scottsdale AZ home', label: 'Paver Sealing' },
+      { src: '/assets/travertine-after.jpg', alt: 'Sealed travertine pool deck after Go Go Gloss treatment — Phoenix AZ', label: 'Travertine Pool Deck' },
+      { src: '/assets/epoxy-after.jpg', alt: 'Finished epoxy floor coating — commercial grade results in Scottsdale AZ', label: 'Epoxy Floor' },
+    ];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Go Go Gloss',
+  description: 'Professional paver sealing and epoxy coatings in Scottsdale and Metro Phoenix, AZ',
+  telephone: settings.phoneDisplay,
+  email: settings.email,
+  url: 'https://gogoglossaz.com',
+  areaServed: settings.serviceAreas,
+  priceRange: '$$',
+};
+---
+<BaseLayout
+  title={settings.metaTitle || 'Go Go Gloss | Paver Sealing & Epoxy Coatings Scottsdale & Metro Phoenix'}
+  description={settings.metaDescription || 'Professional paver sealing and epoxy coatings in Scottsdale and Metro Phoenix, AZ. Licensed & insured. Free estimates. Call (623) 210-3418.'}
+  canonical="https://gogoglossaz.com/"
+  pageCss={['/css/home.css?v=6']}
+  jsonLd={jsonLd}
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">{v('heroEyebrow')}</div>
+        <h1>{v('heroHeadingBefore')}<span>{v('heroHeadingHighlight')}</span>{v('heroHeadingAfter')}</h1>
+        <p class="hero-sub">{v('heroSub')}</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary open-quote-modal">{v('heroCta')}</button>
+          <a href={`tel:${settings.phoneRaw}`} class="btn btn-phone">📞 {settings.phoneDisplay}</a>
+        </div>
+      </div>
+      <div class="hero-van">
+        <img src="/assets/van.png" alt="Go Go Gloss service van">
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="trust-bar-inner">
+      {v('trustItems').map((t) => (
+        <div class="trust-item">
+          <div class="trust-icon">{t.icon}</div>
+          <div class="trust-text"><strong>{t.headline}</strong><span>{t.sub}</span></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">{v('servicesLabel')}</p>
+      <h2 class="section-title">{v('servicesTitle')}</h2>
+      <p class="section-subtitle">{v('servicesSubtitle')}</p>
+      <div class="services-grid">
+        {services.map((s) => (
+          <div class="service-card">
+            <div class="service-card-img"><img src={s.img} alt={s.alt}></div>
+            <div class="service-card-overlay"></div>
+            <div class="service-card-body">
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+              <div class="service-card-actions">
+                <a href={s.link} class="btn btn-outline">Learn More</a>
+                <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section section--gray">
+    <div class="container">
+      <p class="section-label">{v('whyLabel')}</p>
+      <h2 class="section-title">{v('whyTitle')}</h2>
+      <p class="section-subtitle">{v('whySubtitle')}</p>
+      <div class="why-grid">
+        {v('whyItems').map((w) => (
+          <div class="why-item">
+            <div class="why-icon">{w.icon}</div>
+            <div class="why-text">
+              <h4>{w.title}</h4>
+              <p>{w.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">{v('reviewsLabel')}</p>
+      <h2 class="section-title">{v('reviewsTitle')}</h2>
+      <p class="section-subtitle">{v('reviewsSubtitle')}</p>
+      <div class="testimonials-track">
+        {v('testimonials').map((t) => (
+          <div class="review-card">
+            <div class="review-stars stars">★★★★★</div>
+            <p class="review-text">"{t.quote}"</p>
+            <div class="review-author">
+              <div class="review-avatar">{t.initials}</div>
+              <div class="review-author-info">
+                <strong>{t.name}</strong>
+                <span>{t.location}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="google-badge">
+        <span class="g-logo">G</span>
+        <div class="stars">★★★★★</div>
+        <span>5.0 · Google Reviews</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="section section--gray">
+    <div class="container">
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Before &amp; After Results</h2>
+      <p class="section-subtitle">See the transformation for yourself.</p>
+      <div class="gallery-grid">
+        {galleryThumbs.map((g) => (
+          <div class="gallery-thumb">
+            <img src={g.src} alt={g.alt}>
+            <span class="label">{g.label}</span>
+          </div>
+        ))}
+      </div>
+      <div class="gallery-cta">
+        <a href="/gallery/" class="btn btn-outline-dark" style="margin-top:8px">View Full Gallery →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="section section--navy cta-banner">
+    <div class="container">
+      <div>
+        <h2>{v('ctaTitle')}</h2>
+        <p>{v('ctaSub')}</p>
+      </div>
+      <div class="cta-banner-actions">
+        <a href={`tel:${settings.phoneRaw}`} class="btn btn-phone">📞 {settings.phoneDisplay}</a>
+        <a href="/contact/" class="btn btn-primary">Get a Free Quote →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

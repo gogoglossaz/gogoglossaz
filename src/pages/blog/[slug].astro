@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts, getPost, urlFor, CATEGORY_LABELS } from '../../lib/sanity.js';
+import { toHTML } from '@portabletext/to-html';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = await getPost(slug);
+if (!post) throw new Error(`No Sanity blogPost found for slug "${slug}"`);
+
+const canonical = `https://gogoglossaz.com/blog/${post.slug}/`;
+const catLabel = CATEGORY_LABELS[post.category] || 'Guides';
+const catEmoji = post.category === 'epoxy' ? '✨' : '🧱';
+const dateObj = new Date(post.publishedAt);
+const dateLong = dateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+const dateISO = dateObj.toISOString().slice(0, 10);
+
+const bodyHtml = toHTML(post.body, {
+  components: {
+    types: {
+      image: ({ value }) =>
+        `<img src="${urlFor(value).width(860).auto('format').url()}" alt="${value.alt || ''}" loading="lazy">`,
+      comparisonTable: ({ value }) => {
+        const esc = (t) => String(t ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const th = (value.headers || [])
+          .map((h) => `<th style="padding:0.75rem 1rem;text-align:left;border-bottom:2px solid var(--color-border,#e0e0e0);">${esc(h)}</th>`)
+          .join('');
+        const tr = (value.rows || [])
+          .map((r) => `<tr>${(r.cells || [])
+            .map((c) => `<td style="padding:0.75rem 1rem;border-bottom:1px solid var(--color-border,#e0e0e0);">${esc(c)}</td>`)
+            .join('')}</tr>`)
+          .join('');
+        return `<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;margin:1.5rem 0;"><thead><tr style="background:var(--color-surface-2,#f5f5f5);">${th}</tr></thead><tbody>${tr}</tbody></table></div>`;
+      },
+    },
+  },
+});
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.description,
+  datePublished: dateISO,
+  author: { '@type': 'Organization', name: 'Go Go Gloss' },
+  publisher: { '@type': 'Organization', name: 'Go Go Gloss', url: 'https://gogoglossaz.com' },
+  mainEntityOfPage: canonical,
+};
+
+const ctaCopy = post.category === 'epoxy'
+  ? { h: 'Ready for a New Floor?', p: 'Go Go Gloss serves Scottsdale and all of Metro Phoenix. Get your free epoxy floor quote today — most jobs are scheduled within the week.' }
+  : { h: 'Ready to Restore Your Pavers?', p: 'Go Go Gloss serves Scottsdale and all of Metro Phoenix. Get your free paver sealing quote today — most jobs are done in a single day.' };
+---
+<BaseLayout
+  title={`${post.title} | Go Go Gloss`}
+  description={post.description}
+  canonical={canonical}
+  ogType="article"
+  pageCss={['/css/blog.css?v=1']}
+  jsonLd={jsonLd}
+>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span>{post.title}</span>
+    </div>
+  </nav>
+
+  <section class="post-hero">
+    <div class="post-hero-inner">
+      <span class={`post-tag post-tag--${post.category}`}>{catEmoji} {catLabel}</span>
+      <h1>{post.title}</h1>
+      <div class="post-hero-meta">
+        <span>📅 {dateLong}</span>
+        <span>⏱ {post.readTime}</span>
+        <span>✍️ Go Go Gloss</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="post-layout">
+    <article class="post-content">
+      <Fragment set:html={bodyHtml} />
+
+      <div class="post-cta-box">
+        <h3>{ctaCopy.h}</h3>
+        <p>{ctaCopy.p}</p>
+        <button class="btn btn-primary open-quote-modal">Get a Free Quote →</button>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

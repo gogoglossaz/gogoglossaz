@@ -1,0 +1,29 @@
+{
+  "name": "gogoglossaz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "build:offline": "SANITY_FIXTURES=1 astro build",
+    "studio": "npm --prefix ../studio-gogo-website run dev",
+    "studio:deploy": "npm --prefix ../studio-gogo-website run deploy",
+    "migrate:blog": "node --env-file=.env scripts/migrate-blog.mjs",
+    "migrate:import": "node --env-file=.env scripts/migrate-blog.mjs --import",
+    "verify:migration": "node scripts/verify-migration.cjs",
+    "studio:install": "npm --prefix ../studio-gogo-website install",
+    "migrate:gallery": "node --env-file=.env scripts/migrate-gallery.mjs",
+    "migrate:gallery:import": "node --env-file=.env scripts/migrate-gallery.mjs --import"
+  },
+  "dependencies": {
+    "@portabletext/to-html": "^2.0.13",
+    "@sanity/client": "^6.21.3",
+    "@sanity/image-url": "^1.0.2",
+    "astro": "^4.15.9"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0"
+  }
+}

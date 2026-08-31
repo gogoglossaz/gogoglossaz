@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts, CATEGORY_LABELS } from '../../lib/sanity.js';
+
+const posts = await getPosts();
+const fmt = (d) => new Date(d).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+---
+<BaseLayout
+  title="Blog | Paver Sealing & Epoxy Tips for Arizona Homeowners | Go Go Gloss"
+  description="Expert tips on paver sealing, epoxy coatings, and outdoor surface care for Arizona homeowners. From how-to guides to cost breakdowns — learn from Go Go Gloss."
+  canonical="https://gogoglossaz.com/blog/"
+  pageCss={['/css/blog.css?v=1']}
+>
+  <section class="blog-hero">
+    <h1>Arizona Home Tips &amp; Guides</h1>
+    <p>Expert advice on paver sealing, epoxy coatings, and keeping your outdoor surfaces looking their best in the Arizona heat.</p>
+  </section>
+
+  <div class="blog-filters">
+    <button class="blog-filter-btn active" data-filter="all">All Posts</button>
+    <button class="blog-filter-btn" data-filter="paver">🧱 Paver Sealing</button>
+    <button class="blog-filter-btn" data-filter="epoxy">✨ Epoxy Coatings</button>
+  </div>
+
+  <div class="blog-grid" id="blog-grid">
+    {posts.map((post) => (
+      <a href={`/blog/${post.slug}/`} class="blog-card" data-category={post.category}>
+        <div class="blog-card-img">{post.emoji}</div>
+        <div class="blog-card-body">
+          <span class={`blog-card-tag blog-card-tag--${post.category}`}>{CATEGORY_LABELS[post.category]}</span>
+          <h2>{post.title}</h2>
+          <p>{post.excerpt}</p>
+          <div class="blog-card-meta">
+            <span>⏱ {post.readTime}</span>
+            <span>📅 {fmt(post.publishedAt)}</span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <script is:inline>
+    document.querySelectorAll('.blog-filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.blog-filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var filter = btn.dataset.filter;
+        document.querySelectorAll('.blog-card').forEach(function (card) {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</BaseLayout>

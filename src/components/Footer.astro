@@ -1,0 +1,53 @@
+---
+const { settings } = Astro.props;
+const areas = (settings.serviceAreas || []).join(' · ');
+---
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/assets/logo.png" alt="Go Go Gloss">
+      <p>Professional Paver Sealing &amp; Epoxy Coatings in Scottsdale and Metro Phoenix, AZ. Quality work, trusted results.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">🛡️ Licensed &amp; Insured</span>
+        <span class="footer-badge">⭐ 5-Star Rated</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/paver-sealing/">Paver Sealing</a></li>
+        <li><a href="/epoxy-coatings/">Epoxy Coatings</a></li>
+        <li><a href="/contact/">Free Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <a href={`tel:${settings.phoneRaw}`}>📞 {settings.phoneDisplay}</a>
+        <a href={`mailto:${settings.email}`}>✉️ {settings.email}</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon" aria-label="Facebook">f</a>
+        <a href="#" class="social-icon" aria-label="Instagram">in</a>
+        <a href="#" class="social-icon" aria-label="Google">G</a>
+      </div>
+      <div style="margin-top:16px">
+        <p class="footer-areas">{areas}</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>{settings.copyright}. All rights reserved.</span>
+    <span>Scottsdale, AZ · gogoglossaz.com</span>
+  </div>
+</footer>

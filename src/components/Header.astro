@@ -1,0 +1,28 @@
+---
+const { settings } = Astro.props;
+---
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="header-logo">
+      <img src="/assets/logo.png" alt="Go Go Gloss — Paver Sealing and Epoxy">
+    </a>
+    <nav>
+      <ul class="header-nav"></ul>
+    </nav>
+    <div class="header-actions">
+      <a href={`tel:${settings.phoneRaw}`} class="header-phone">📞 {settings.phoneDisplay}</a>
+      <button class="btn btn-primary header-cta open-quote-modal">Get a Free Quote</button>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <a href="/">Home</a>
+  <a href={`tel:${settings.phoneRaw}`} class="mobile-phone">📞 Call {settings.phoneDisplay}</a>
+  <a href="/contact/" class="mobile-quote">Get a Free Quote →</a>
+</div>
