@@ -219,7 +219,7 @@
           </svg>
           <h2>You're all set, ${firstName}!</h2>
           <p>We'll review your request and be in touch within <strong>24 hours</strong>.</p>
-          <a href="tel:6232103418" class="confirmation-phone">📞 (623) 210-3418</a>
+          <a href="tel:6023649304" class="confirmation-phone">📞 (602) 364-9304</a>
         </div>`;
       requestAnimationFrame(() => requestAnimationFrame(() => {
         body.querySelector('.check-circle')?.classList.add('animate');

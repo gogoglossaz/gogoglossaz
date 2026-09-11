@@ -11,7 +11,7 @@
 ## Global Constraints
 
 - Domain: `https://gogoglossaz.com`
-- Phone: `(623) 210-3418`
+- Phone: `(602) 364-9304`
 - Email: `info@gogoglossaz.com`
 - Formspree endpoint: `https://formspree.io/f/xrenodyk`
 - Brand colors: `--blue: #6BBDE3`, `--navy: #1A2744`, `--cta: #2563EB`
@@ -56,7 +56,7 @@ In `<head>` after the `<meta name="description">` line, add:
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://gogoglossaz.com/">
   <meta property="og:title" content="Go Go Gloss | Paver Sealing & Epoxy Coatings Scottsdale & Metro Phoenix">
-  <meta property="og:description" content="Professional paver sealing and epoxy coatings in Scottsdale and Metro Phoenix, AZ. Licensed & insured. Free estimates. Call (623) 210-3418.">
+  <meta property="og:description" content="Professional paver sealing and epoxy coatings in Scottsdale and Metro Phoenix, AZ. Licensed & insured. Free estimates. Call (602) 364-9304.">
   <meta property="og:url" content="https://gogoglossaz.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://gogoglossaz.com/assets/logo.png">
@@ -216,7 +216,7 @@ The file lists all 30 posts with filter buttons (All / Paver Sealing / Epoxy Coa
     <a href="/" class="header-logo"><img src="../assets/logo.png" alt="Go Go Gloss"></a>
     <nav><ul class="header-nav"></ul></nav>
     <div class="header-actions">
-      <a href="tel:6232103418" class="header-phone">📞 (623) 210-3418</a>
+      <a href="tel:6023649304" class="header-phone">📞 (602) 364-9304</a>
       <button class="btn btn-primary header-cta open-quote-modal">Get a Free Quote</button>
     </div>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>

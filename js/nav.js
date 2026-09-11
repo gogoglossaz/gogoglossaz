@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="${r}about/">About</a>
       <a href="${r}contact/">Contact</a>
       <a href="${r}blog/">Blog</a>
-      <a href="tel:6232103418" class="mobile-phone">📞 Call (623) 210-3418</a>
+      <a href="tel:6023649304" class="mobile-phone">📞 Call (602) 364-9304</a>
       <button class="mobile-quote open-quote-modal">Get a Free Quote →</button>
     `;
   }
