@@ -1,10 +1,10 @@
 .about-hero {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  background: var(--navy);
   padding: 80px 24px;
   color: white;
   text-align: center;
 }
-.about-hero h1 { color: white; margin-bottom: 14px; }
+.about-hero h1 { color: var(--blue); margin-bottom: 14px; }
 .about-hero p { font-size: 1.1rem; opacity: 0.8; margin: 0 auto; }
 
 .about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
@@ -92,8 +92,8 @@
   margin-top: 32px;
 }
 .area-chip {
-  background: rgba(107,189,227,0.12);
-  border: 1px solid rgba(107,189,227,0.3);
+  background: rgba(18,193,253,0.12);
+  border: 1px solid rgba(18,193,253,0.3);
   border-radius: 20px;
   padding: 7px 16px;
   font-size: 0.85rem;

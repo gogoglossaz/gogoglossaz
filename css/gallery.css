@@ -79,7 +79,7 @@
 }
 
 .gallery-cta-strip {
-  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  background: var(--navy);
   padding: 60px 24px;
   text-align: center;
   margin-top: 60px;

@@ -1,11 +1,11 @@
 /* ── Blog listing ─────────────────────────────────────────────────────────── */
 .blog-hero { background: var(--navy); color: #fff; padding: 80px 24px 64px; text-align: center; }
-.blog-hero h1 { font-size: clamp(2rem,4vw,3rem); margin-bottom: 16px; }
+.blog-hero h1 { color: var(--blue); font-size: clamp(1.8rem,4vw,2.7rem); margin-bottom: 16px; }
 .blog-hero p { color: rgba(255,255,255,0.8); max-width: 52ch; margin: 0 auto; font-size: 1.1rem; }
 
 .blog-filters { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; padding: 32px 24px 0; }
 .blog-filter-btn { padding: 8px 20px; border-radius: 999px; border: 2px solid var(--gray-mid); background: #fff; color: var(--navy); font-weight: 600; font-size: 0.875rem; cursor: pointer; transition: var(--transition); font-family: var(--font); }
-.blog-filter-btn.active, .blog-filter-btn:hover { background: var(--cta); border-color: var(--cta); color: #fff; }
+.blog-filter-btn.active, .blog-filter-btn:hover { background: var(--cta); border-color: var(--cta); color: var(--on-cta); }
 
 .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; max-width: var(--max-width); margin: 40px auto; padding: 0 24px 80px; }
 
@@ -15,8 +15,8 @@
 .blog-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
 .blog-card-tag { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
 .blog-card-tag--paver { background: #e0f2fe; color: #0369a1; }
-.blog-card-tag--epoxy { background: #ede9fe; color: #6d28d9; }
-.blog-card h2 { font-size: 1.1rem; line-height: 1.4; margin-bottom: 10px; color: var(--navy); }
+.blog-card-tag--epoxy { background: #111; color: var(--blue); }
+.blog-card h2 { font-family: var(--font); font-style: normal; font-weight: 700; text-transform: none; font-size: 1.1rem; line-height: 1.4; margin-bottom: 10px; color: var(--navy); }
 .blog-card p { font-size: 0.88rem; color: var(--gray-text); flex: 1; margin-bottom: 16px; line-height: 1.6; }
 .blog-card-meta { font-size: 0.78rem; color: var(--gray-text); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
@@ -24,21 +24,21 @@
 .post-hero { background: var(--navy); color: #fff; padding: 80px 24px 64px; }
 .post-hero-inner { max-width: 800px; margin: 0 auto; }
 .post-tag { display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px; }
-.post-tag--paver { background: rgba(107,189,227,0.25); color: var(--blue); }
-.post-tag--epoxy { background: rgba(167,139,250,0.25); color: #c4b5fd; }
-.post-hero h1 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.25; margin-bottom: 20px; }
+.post-tag--paver { background: rgba(18,193,253,0.25); color: var(--blue); }
+.post-tag--epoxy { background: rgba(255,255,255,0.14); color: #fff; }
+.post-hero h1 { color: var(--blue); font-size: clamp(1.6rem, 3.4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
 .post-hero-meta { display: flex; gap: 20px; color: rgba(255,255,255,0.7); font-size: 0.85rem; flex-wrap: wrap; }
 
 .post-layout { max-width: 860px; margin: 0 auto; padding: 56px 24px; }
 .post-content { font-size: 1.0625rem; line-height: 1.8; color: var(--text-dark); }
-.post-content h2 { font-size: 1.5rem; color: var(--navy); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--gray-mid); }
+.post-content h2 { font-family: var(--font); font-style: normal; font-weight: 700; text-transform: none; font-size: 1.5rem; color: var(--navy); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--gray-mid); }
 .post-content h3 { font-size: 1.15rem; color: var(--navy); margin: 28px 0 12px; }
 .post-content p { margin-bottom: 20px; }
 .post-content ul, .post-content ol { margin: 0 0 20px 24px; }
 .post-content li { margin-bottom: 8px; line-height: 1.7; }
 .post-content strong { color: var(--navy); font-weight: 600; }
-.post-content a { color: var(--cta); text-decoration: underline; }
-.post-content a:hover { color: var(--cta-hover); }
+.post-content a { color: var(--link); text-decoration: underline; }
+.post-content a:hover { color: var(--navy); }
 
 .post-cta-box { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 40px; text-align: center; margin: 48px 0; }
 .post-cta-box h3 { font-size: 1.4rem; margin-bottom: 12px; }

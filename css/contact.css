@@ -52,10 +52,10 @@
   z-index: 1;
   transition: all 0.4s ease;
 }
-.progress-step.active .progress-dot { background: var(--cta); color: white; box-shadow: 0 0 0 4px rgba(37,99,235,0.2); }
+.progress-step.active .progress-dot { background: var(--cta); color: var(--on-cta); box-shadow: 0 0 0 4px rgba(18,193,253,0.2); }
 .progress-step.done .progress-dot { background: var(--success); color: white; }
 .progress-label { font-size: 0.74rem; font-weight: 600; color: var(--gray-text); text-align: center; transition: color 0.3s; }
-.progress-step.active .progress-label { color: var(--cta); }
+.progress-step.active .progress-label { color: var(--link); }
 .progress-step.done .progress-label { color: var(--success); }
 
 /* Form Shell */
@@ -104,8 +104,8 @@
   position: relative;
   user-select: none;
 }
-.svc-card:hover { border-color: var(--blue); background: rgba(107,189,227,0.04); transform: translateY(-2px); }
-.svc-card.selected { border-color: var(--cta); background: rgba(37,99,235,0.06); box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
+.svc-card:hover { border-color: var(--blue); background: rgba(18,193,253,0.04); transform: translateY(-2px); }
+.svc-card.selected { border-color: var(--cta); background: rgba(18,193,253,0.06); box-shadow: 0 0 0 4px rgba(18,193,253,0.1); }
 .svc-card.bundle { border-color: var(--blue); }
 .svc-card.bundle.selected { border-color: #f59e0b; background: rgba(245,158,11,0.06); box-shadow: 0 0 0 4px rgba(245,158,11,0.15); }
 
@@ -148,7 +148,7 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 .upsell-banner .upsell-icon { font-size: 1.2rem; flex-shrink: 0; }
-.upsell-link { color: var(--cta); font-weight: 700; cursor: pointer; text-decoration: underline; margin-left: 4px; }
+.upsell-link { color: var(--link); font-weight: 700; cursor: pointer; text-decoration: underline; margin-left: 4px; }
 
 /* Step 2 – Contact Info */
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
@@ -168,7 +168,7 @@
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
   outline: none;
   border-color: var(--cta);
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+  box-shadow: 0 0 0 3px rgba(18,193,253,0.12);
 }
 .form-group input.error { border-color: #dc2626; }
 .error-msg { color: #dc2626; font-size: 0.78rem; display: none; }
@@ -208,7 +208,7 @@
   user-select: none;
 }
 .time-opt:hover { border-color: var(--blue); }
-.time-opt.selected { border-color: var(--cta); background: rgba(37,99,235,0.06); color: var(--cta); font-weight: 600; }
+.time-opt.selected { border-color: var(--cta); background: rgba(18,193,253,0.1); color: var(--navy); font-weight: 600; }
 .time-opt-icon { font-size: 1.4rem; margin-bottom: 4px; }
 .time-opt-label { font-size: 0.82rem; font-weight: 600; }
 .time-opt-hours { font-size: 0.72rem; color: var(--gray-text); }
@@ -243,14 +243,14 @@
   font-family: var(--font);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--on-cta);
   cursor: pointer;
   transition: all var(--transition);
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.btn-next:hover { background: var(--cta-hover); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+.btn-next:hover { background: var(--cta-hover); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(18,193,253,0.35); }
 .btn-next:disabled { background: var(--gray-mid); color: var(--gray-text); cursor: not-allowed; transform: none; box-shadow: none; }
 
 /* Confirmation */
@@ -334,7 +334,7 @@
   position: sticky;
   top: 96px;
 }
-.sidebar-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 20px; }
+.sidebar-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--link); margin-bottom: 20px; }
 .sidebar-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 20px; }
 .sidebar-icon { font-size: 1.3rem; flex-shrink: 0; }
 .sidebar-item h4 { font-size: 0.9rem; color: var(--navy); margin-bottom: 2px; }
