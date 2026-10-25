@@ -1,0 +1,30 @@
+/* Privacy Policy and Terms pages */
+.legal-hero {
+  background: var(--navy);
+  padding: 72px 24px 56px;
+  color: var(--white);
+  text-align: center;
+}
+.legal-hero h1 { color: var(--blue); margin-bottom: 12px; }
+.legal-hero p { opacity: 0.8; margin: 0 auto; }
+
+.legal-body { max-width: 780px; margin: 0 auto; color: var(--text-dark); }
+.legal-body h2 {
+  color: var(--navy);
+  font-size: 1.35rem;
+  margin: 40px 0 12px;
+}
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body p, .legal-body li { color: var(--gray-text); line-height: 1.7; }
+.legal-body p { margin-bottom: 14px; }
+.legal-body ul { margin: 0 0 16px 22px; }
+.legal-body li { margin-bottom: 6px; }
+.legal-body a { color: var(--link); }
+.legal-contact {
+  background: var(--gray-light);
+  border-left: 4px solid var(--blue);
+  padding: 18px 22px;
+  border-radius: var(--radius);
+  margin-top: 12px;
+}
+.legal-contact p { margin-bottom: 4px; }
