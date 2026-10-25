@@ -78,6 +78,8 @@
   font-size: 0.82rem;
   color: #B6BCC6;
 }
+.footer-legal a { color: #B6BCC6; text-decoration: none; }
+.footer-legal a:hover { color: var(--blue); text-decoration: underline; }
 
 @media (max-width: 1000px) {
   .footer-inner { grid-template-columns: 1fr 1fr 1fr; }

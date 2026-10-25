@@ -11,7 +11,7 @@ It is safe to re-run; it replaces the existing blocks in place.
 import glob
 import re
 
-ASSET_VERSION = "20261006"
+ASSET_VERSION = "20261024"
 PHONE_DISPLAY = "(602) 364-9304"
 PHONE_RAW = "6023649304"
 EMAIL = "info@gogoglossaz.com"
@@ -189,6 +189,7 @@ FOOTER = f"""<footer class="site-footer">
   <p class="footer-areas"><strong>Service areas:</strong> {" · ".join(n for n, _ in CITIES)}</p>
   <div class="footer-bottom">
     <span>© 2026 Go Go Gloss LLC. All rights reserved.</span>
+    <span class="footer-legal"><a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms &amp; Conditions</a></span>
     <span>AZ ROC #{ROC}</span>
   </div>
 </footer>
