@@ -168,6 +168,9 @@
       'Preferred Date':  document.getElementById('modal-date')?.value,
       'Preferred Time':  selectedTime,
       'Notes':           document.getElementById('modal-notes')?.value || '(none)',
+      'SMS Opt-In':      document.getElementById('modal-smsOptIn')?.checked ? 'Yes' : 'No',
+      'SMS Consent Time': document.getElementById('modal-smsOptIn')?.checked ? new Date().toISOString() : '',
+      'Consent Page':    location.href,
     };
 
     try {
@@ -219,7 +222,7 @@
           </svg>
           <h2>You're all set, ${firstName}!</h2>
           <p>We'll review your request and be in touch within <strong>24 hours</strong>.</p>
-          <a href="tel:6232103418" class="confirmation-phone">📞 (623) 210-3418</a>
+          <a href="tel:6238241326" class="confirmation-phone">📞 (623) 824-1326</a>
         </div>`;
       requestAnimationFrame(() => requestAnimationFrame(() => {
         body.querySelector('.check-circle')?.classList.add('animate');

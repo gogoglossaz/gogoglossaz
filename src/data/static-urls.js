@@ -7,6 +7,7 @@ export const STATIC_URLS = [
   "https://gogoglossaz.com/gallery/",
   "https://gogoglossaz.com/about/",
   "https://gogoglossaz.com/contact/",
+  "https://gogoglossaz.com/privacy-policy/",
   "https://gogoglossaz.com/industries/",
   "https://gogoglossaz.com/paver-sealing/pool-deck/",
   "https://gogoglossaz.com/paver-sealing/driveway/",

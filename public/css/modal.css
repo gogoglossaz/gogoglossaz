@@ -416,3 +416,17 @@
   .step-label { font-size: 0.65rem; }
   .step-icon-wrap { width: 34px; height: 34px; font-size: 0.95rem; }
 }
+
+/* ── SMS Opt-In ── */
+.form-group.sms-consent { margin-top: 4px; }
+.sms-consent-label {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.74rem !important; font-weight: 400 !important;
+  line-height: 1.45; color: #64748b !important; cursor: pointer;
+}
+.sms-consent-label strong { color: var(--navy); font-weight: 600; }
+.sms-consent-label a { color: var(--blue); text-decoration: underline; }
+.form-group .sms-consent-label input[type="checkbox"] {
+  width: 18px; height: 18px; min-width: 18px; padding: 0; margin: 1px 0 0;
+  accent-color: var(--blue); cursor: pointer; flex: none;
+}
